@@ -9,7 +9,8 @@ app.get('/ping',async(req, res)=>{
     res.json(result)
 })
 
-app.get('/',(req, res)=>{
+app.get('/',async(req, res)=>{
+    const [result]=await pool.query(`select * from personajes;`)
     res.send('RESPUESTA DEL SERVIDOR')
 })
 
